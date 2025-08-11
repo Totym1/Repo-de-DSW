@@ -1,10 +1,12 @@
 {
-  "name": "Repo-de-DSW",
+  "name": "repo-de-dsw",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
+  
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +14,13 @@
   "license": "ISC",
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "mongoose": "^8.16.0"
+    "mongoose": "^8.16.0",
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
