@@ -31,4 +31,3 @@ mongoose.connect(process.env.MONGO_DB_CONNECTION)
   app.listen(PORT, () => {
   console.log(`Servidor ejecutandose en http://localhost:${PORT}`);
 });
-
