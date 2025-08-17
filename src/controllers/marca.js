@@ -1,159 +1,70 @@
-const prompt = require('prompt-sync')();
-const marca = {
-    init (idMarca, nombre, descripcion) {
-        this.idMarca = idMarca;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-    },
-    getInfo() {
-        return `${this.idMarca} ${this.nombre} ${this.descripcion}`;
-    },
-    updateDescripcion (descripcion) {
-        this.descripcion = descripcion;
-    },
-    updateNombre (nombre) {
-        this.nombre = nombre;
+'use strict'
+
+import Marca from '../models/marca.js';
+
+var MarcaController = {
+  // Guardar una marca
+  saveMarca: async (req, res) => {
+    var params = req.body;
+    var marca = new Marca({
+      idMarca: params.idMarca,
+      nombre: params.nombre,
+      descripcion: params.descripcion
+    });
+
+    try {
+      var savedmarca = await marca.save();
+      res.status(201).send({ message: 'Marca guardada correctamente', savedmarca });
+    } catch (error) {
+      res.status(500).send({ message: 'Error al guardar la marca', error });
     }
-}
+  },
 
-function crearMarca(nombre, descripcion) {
-    const nuevaMarca = Object.create(marca);
-    nuevaMarca.init(idMarca, nombre, descripcion);
-    marcas.push(nuevaMarca);
-    idMarca++;
-    console.log(`Marca creada: ${nuevaMarca.getInfo()}`);
-}
-
-function leerTodasLasMarcas() {
-    console.log('Listado de marcas: \n ID Marca Nombre Descripcion');
-    if (marcas.length === 0) {
-        console.log('No hay marcas registradas.');
-        return;
+  // Obtener todas las marcas ordenadas por idMarca
+  getMarcaById: async (req, res) => {
+    try {
+      const marcas = await Marca.find().sort('idMarca').exec();
+      if (!marcas || marcas.length === 0) {
+        return res.status(404).send({ message: 'No se encontraron marcas' });
+      }
+      res.status(200).send({ marcas });
+    } catch (err) {
+      res.status(500).send({ message: 'Error al obtener las marcas', error: err });
     }
-    else {
-        marcas.forEach(marca => {
-            console.log(marca.getInfo());
-        });
+  },
+
+  // Eliminar una marca por ID
+  deleteMarca: async (req, res) => {
+    var marcaId = req.params.id;
+    try {
+      var deletedmarca = await Marca.findByIdAndDelete(marcaId);
+      if (!deletedmarca) {
+        return res.status(404).send({ message: 'Marca no encontrada' });
+      }
+      res.status(200).send({ message: 'Marca eliminada correctamente' });
+    } catch (error) {
+      res.status(500).send({ message: 'Error al eliminar la marca', error });
     }
-}
+  },
 
-//Funcion para buscar varias marcas a la vez por nombre
-//Funcion para buscar marcas por letra inicial
-
-function actualizarMarcaPorNombre(nombre) {
-    const nuevoNombre = prompt('Ingrese el nuevo nombre de la marca:');
-    marcas.forEach(marca => {
-        if (marca.nombre.toLowerCase() === nombre.toLowerCase()) {
-            marca.updateNombre(nuevoNombre);
-            return `${marca.getInfo()}`;
-        }
-    })
-}
-
-function actualizarMarcaPorDescripcion(nombre) {
-    const nuevaDescripcion = prompt('Ingrese la nueva descripcion de la marca:');
-    marcas.forEach(marca => {
-        if (marca.nombre.toLowerCase() === nombre.toLowerCase()) {
-            marca.updateDescripcion(nuevaDescripcion);
-            return `${marca.getInfo()}`;
-        }
-    })
-}
-
-function actualizarMarca(nombre) {
-    let salir = false;
-    while (salir === false) {
-        let opcion = prompt('Que dato de la marca desea actualizar? nombre (n), descripcion (d) o ambos (a)? Salir (s)').toLowerCase();
-        switch (opcion) {
-            case `n`:
-                let infoN = actualizarMarcaPorNombre(nombre);
-                console.log(`Marca actualizada: ${infoN}`);
-                break;
-            case `d`:
-                let infoD = actualizarMarcaPorDescripcion(nombre);
-                console.log(`Marca actualizada: ${infoD}`);
-                break;
-            case `a`:
-                let infoA = actualizarMarcaPorNombre(nombre);
-                let infoB = actualizarMarcaPorDescripcion(nombre);
-                console.log(`Marca actualizada: ${infoA} ${infoB}`);
-                break;
-            case `s`:
-                salir = true;
-                break;
-            default:
-                console.log('Opción no válida. Por favor, elija n, d o a.');
-                break;
-        }
+  // Actualizar una marca por ID
+  updateMarca: async (req, res) => {
+    var marcaId = req.params.id;
+    var updateData = req.body;
+    try {
+      var updatedmarca = await Marca.findByIdAndUpdate(
+        marcaId,
+        updateData,
+        { new: true }
+      );
+      if (!updatedmarca) {
+        return res.status(404).send({ message: 'Marca no encontrada' });
+      }
+      res.status(200).send({ message: 'Marca actualizada correctamente', updatedmarca });
+    } catch (error) {
+      res.status(500).send({ message: 'Error al actualizar la marca', error });
     }
+  }
 }
 
-function eliminarMarca(nombre) {
-    let indice = marcas.findIndex(marca => marca.nombre.toLowerCase() === nombre.toLowerCase());
-    if (indice !== -1) {
-        marcas.splice(indice, 1);
-        console.log(`Marca eliminada: ${nombre}`);
-    } else {
-        console.log(`Marca no encontrada: ${nombre}`);
-    }
-}
-
-function existeNombreMarca(nombre) {
-    marcas.forEach(marca => {
-        if (marca.nombre.toLowerCase() === nombre.toLowerCase()) {
-            return true;
-        }
-    })
-}   
-
-const marcas = [];
-let idMarca = 1;
-
-
-function menu() {
-    let salir = false;
-    while (salir === false) {
-        console.log('Seleccione una opción: \n 1. Crear Marca \n 2. Leer Todas las Marcas \n 3. Actualizar Marca \n 4. Eliminar Marca \n 5. Salir')
-        let opcion = prompt();
-        switch (opcion) {
-            case `1`:
-                let nombre = prompt('Ingrese el nombre de la marca:').toLowerCase();
-                while (existeNombreMarca(nombre)) {
-                    console.log(`La marca ${nombre} ya existe. Por favor, ingrese un nombre diferente.`);
-                    nombre = prompt('Ingrese el nombre de la marca:');
-                }
-                let descripcion = prompt('Ingrese la descripcion de la marca:');
-                crearMarca(nombre, descripcion);
-                break;
-            case `2`:
-                leerTodasLasMarcas();
-                break;
-            case `3`:
-                let nombreActualizar = prompt('Ingrese el nombre de la marca a actualizar:').toLowerCase();
-                while (existeNombreMarca(nombreActualizar)) {
-                    console.log(`La marca ${nombreActualizar} no existe. Por favor, ingrese un nombre válido.`);
-                    nombreActualizar = prompt('Ingrese el nombre de la marca a actualizar:');
-                }
-                actualizarMarca(nombreActualizar);
-                break;
-            case `4`:
-                let nombreEliminar = prompt('Ingrese el nombre de la marca a eliminar:').toLowerCase();
-                while (!existeNombreMarca(nombreEliminar)) {
-                    console.log(`La marca ${nombreEliminar} no existe. Por favor, ingrese un nombre válido.`);
-                    nombreEliminar = prompt('Ingrese el nombre de la marca a eliminar:');
-                }
-                eliminarMarca(nombreEliminar);
-                break;
-            case `5`:
-                salir = true;
-                console.log('Saliendo del programa...');
-                break;
-            default:
-                console.log('Opción no válida. Por favor, elija una opción del menú.');
-                break;
-        }
-    }
-}
-
-// Llamamos a la función menu para iniciar el programa
-menu();
+export default MarcaController;

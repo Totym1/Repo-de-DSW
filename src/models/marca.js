@@ -9,4 +9,4 @@ var marcaSchema = new schema({
   descripcion: String
 });
 
-module.exports = mongoose.model('Marca', marcaSchema);
+export default mongoose.model('Marca', marcaSchema);

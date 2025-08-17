@@ -9,4 +9,4 @@ var categoriaSchema = new schema({
   descripcion: String
 });
 
-module.exports = mongoose.model('Categoria', categoriaSchema);
+export default mongoose.model('Categoria', categoriaSchema);

@@ -6,10 +6,10 @@ var LocalidadController = {
   // Guardar una localidad
   saveLocalidad: async (req, res) => {
     var params = req.body;
-    var localidad = new Localidad();
-
-    localidad.codPostal = params.codPostal;
-    localidad.ciudad = params.ciudad;
+    var localidad = new Localidad({
+      codPostal: params.codPostal,
+      ciudad: params.ciudad
+    });
 
     try {
       var savedLocalidad = await localidad.save();
@@ -19,21 +19,20 @@ var LocalidadController = {
     }
   },
 
-
+  // Obtener todas las localidades ordenadas por codPostal
   getlocalidadById: async (req, res) => {
-      var query = localidad.find();
+    try {
+      const localidades = await Localidad.find().sort('codPostal').exec();
+      if (!localidades || localidades.length === 0) {
+        return res.status(404).send({ message: 'No se encontraron localidades' });
+      }
+      res.status(200).send({ localidades });
+    } catch (err) {
+      res.status(500).send({ message: 'Error al obtener las localidades', error: err });
+    }
+  },
 
-      query.sort('codPostal').exec((err, localidades) => {
-        if (err) {
-          return res.status(500).send({ message: 'Error al obtener las localidades', error: err });
-        }
-        if (!localidades) {
-          return res.status(404).send({ message: 'No se encontraron localidades' });
-        }
-        return res.status(200).send({ localidades });
-      })},
-  
-// Eliminar una localidad por ID
+  // Eliminar una localidad por ID
   deleteLocalidad: async (req, res) => {
     var localidadId = req.params.id;
     try {
@@ -45,25 +44,26 @@ var LocalidadController = {
     } catch (error) {
       res.status(500).send({ message: 'Error al eliminar la localidad', error });
     }
-    },
-// Actualizar una localidad por ID
+  },
+
+  // Actualizar una localidad por ID
   updateLocalidad: async (req, res) => {
-  var localidadId = req.params.id;
-  var updateData = req.body;
-  const codPostal = params.codPostal;
-  const ciudad = params.ciudad;
-  try {
-    var updatedLocalidad = await Localidad.findByIdAndUpdate(localidadId, updateData, {codPostal: codPostal, ciudad: ciudad}, { new: true });
-    if (!updatedLocalidad) {
-      return res.status(404).send({ message: 'Localidad no encontrada' });
-    }
-    res.status(200).send({ message: 'Localidad actualizada correctamente', updatedLocalidad });
-  } catch (error) {
-    res.status(500).send({ message: 'Error al actualizar la localidad', error });
+    var localidadId = req.params.id;
+    var updateData = req.body;
+    try {
+      var updatedLocalidad = await Localidad.findByIdAndUpdate(
+        localidadId,
+        updateData,
+        { new: true }
+      );
+      if (!updatedLocalidad) {
+        return res.status(404).send({ message: 'Localidad no encontrada' });
+      }
+      res.status(200).send({ message: 'Localidad actualizada correctamente', updatedLocalidad });
+    } catch (error) {
+      res.status(500).send({ message: 'Error al actualizar la localidad', error });
     }
   }
 }
 
-module.exports = LocalidadController;
-
-;
+export default LocalidadController;

@@ -8,4 +8,4 @@ var LocalidadSchema = new schema({
   ciudad: String
 });
 
-module.exports = mongoose.model('Localidad', LocalidadSchema);
+export default mongoose.model('Localidad', LocalidadSchema);

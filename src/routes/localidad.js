@@ -2,7 +2,8 @@
 
 import express from "express";
 import Localidad from "../controllers/localidad.js";
-import router from express.Router();
+
+const router = express.Router();
 
 // Guardar una localidad
 router.post('/save', Localidad.saveLocalidad);
@@ -16,4 +17,4 @@ router.delete('/delete/:id', Localidad.deleteLocalidad);
 // Actualizar una localidad por ID
 router.put('/update/:id', Localidad.updateLocalidad);
 
-module.exports = router;
+export default router;
