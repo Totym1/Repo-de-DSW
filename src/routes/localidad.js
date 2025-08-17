@@ -2,7 +2,7 @@
 
 import express from "express";
 import Localidad from "../controllers/localidad.js";
-//import router from express.Router(); //(Esto estaba antes)
+
 const router = express.Router();
 
 // Guardar una localidad
