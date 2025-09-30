@@ -14,8 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 import { categoriaRoutes } from './Categoria/categ.routes.js';
+import { marcaRoutes } from './Marca/marca.routes.js';
 
 app.use('/api', categoriaRoutes);
+app.use('/api', marcaRoutes);
 
 const conexionMongoDB = process.env.MONGO_DB_CONNECTION;
 if (!conexionMongoDB) {

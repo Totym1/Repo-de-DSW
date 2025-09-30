@@ -1,0 +1,26 @@
+### obtener todas las marcas
+GET http://localhost:3000/api/marcas
+
+### obtener una marca por id
+GET http://localhost:3000/api/marcas/68dc29f3855611417f9620d6
+
+### guardar una nueva marca
+POST http://localhost:3000/api/marcas/
+Content-Type: application/json
+
+{
+    "nombre": "Marca de Prueba",
+    "descripcion": "Descripción de la marca de prueba"
+}
+
+### actualizar una marca por id
+PUT http://localhost:3000/api/marcas/68dc29f3855611417f9620d6
+Content-Type: application/json
+
+{
+    "nombre": "Marca Actualizada",
+    "descripcion": "Descripción actualizada de la marca"
+}
+
+### eliminar una marca por id
+DELETE http://localhost:3000/api/marcas/
