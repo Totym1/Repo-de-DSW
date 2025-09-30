@@ -1,6 +1,4 @@
-'use strict'
-//import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
+/*import mongoose from 'mongoose';
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -28,12 +26,4 @@ mongoose.connect(process.env.MONGO_DB_CONNECTION)
   .catch(err => console.error('Error de conexión:', err));
   app.listen(PORT, () => {
   console.log(`Servidor ejecutandose en http://localhost:${PORT}`);
-});
-
-/*app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers","Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Allow", "GET, POST, PUT, DELETE, OPTIONS");
-  next();
 });*/
