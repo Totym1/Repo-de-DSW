@@ -1,15 +1,13 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-export interface ICategoria extends Document {
-    idCategoria: number;
+export interface typeCategoria extends Document {
     nombre: string;
     descripcion: string;
 }
 
-const categoriaSchema = new Schema<ICategoria>({
-    idCategoria: { type: Number, required: true },
+const categoriaSchema = new Schema<typeCategoria>({
     nombre: { type: String, required: true },
     descripcion: { type: String, required: true }
 });
 
-export const Categoria = mongoose.model<ICategoria>('Categoria', categoriaSchema);
+export const Categoria = mongoose.model<typeCategoria>('Categoria', categoriaSchema);

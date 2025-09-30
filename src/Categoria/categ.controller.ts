@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import { Categoria } from './categ.model';
+import { Categoria, typeCategoria } from './categ.model.js';
 
 export class CategoriaController {
     public async createCategoria(req: Request, res: Response): Promise<void> {
       try { 
-        const newCategoria = new Categoria(req.body);
+        const newCategoria: typeCategoria = new Categoria(req.body);
         await newCategoria.save();
         res.status(201).json({ message: 'Categoria guardada correctamente!', newCategoria});
       } catch (error) {
@@ -14,7 +14,7 @@ export class CategoriaController {
 
     public async getAll(req: Request, res: Response): Promise<void> {
       try {
-        const categorias = await Categoria.find();
+        const categorias: typeCategoria[] = await Categoria.find();
         res.status(200).json(categorias);
       } catch (error) {
         res.status(500).json({ message: 'Error al obtener las categorias', error });
@@ -23,8 +23,7 @@ export class CategoriaController {
 
     public async getCategoria(req: Request, res: Response): Promise<void> {
       try {
-        const idCategoria = Number(req.params.idCategoria);
-        const categoria = await Categoria.findOne({ idCategoria });
+        const categoria: typeCategoria | null = await Categoria.findById(req.params._id);
         if (categoria) {
             res.status(200).json(categoria);
         } else {
@@ -37,9 +36,8 @@ export class CategoriaController {
 
     public async updateCategoria(req: Request, res: Response): Promise<void> {
       try {
-        const idCategoria = Number(req.params.idCategoria);
-        const categoriaUpdated = await Categoria.findOneAndUpdate(
-            { idCategoria },
+        const categoriaUpdated: typeCategoria | null = await Categoria.findByIdAndUpdate(
+            req.params._id,
             req.body,
             { new: true }
         );
@@ -54,9 +52,8 @@ export class CategoriaController {
     }
 
     public async deleteCategoria(req: Request, res: Response): Promise<void> {
-        const idCategoria = Number(req.params.idCategoria);
         try {
-            const deletedCategoria = await Categoria.findOneAndDelete({ idCategoria });
+            const deletedCategoria: typeCategoria | null = await Categoria.findByIdAndDelete(req.params._id);
             if (deletedCategoria) {
                 res.status(200).json({ message: 'Categoria eliminada correctamente!' });
             } else {

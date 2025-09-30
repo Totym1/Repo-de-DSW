@@ -4,7 +4,6 @@
   "description": "",
   "type": "module",
   "main": "index.js",
-  
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "start": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/index.js\""
@@ -14,7 +13,6 @@
   "license": "ISC",
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
-    "@types/node": "^24.6.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
@@ -22,7 +20,9 @@
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/node": "^24.6.0",
     "nodemon": "^3.1.10",
     "tsc-watch": "6.0.4",
     "typescript": "5.1.3"
