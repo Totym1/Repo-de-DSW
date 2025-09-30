@@ -5,7 +5,7 @@ GET http://localhost:3000/api/marcas
 GET http://localhost:3000/api/marcas/68dc29f3855611417f9620d6
 
 ### guardar una nueva marca
-POST http://localhost:3000/api/marcas/
+POST http://localhost:3000/api/marcas
 Content-Type: application/json
 
 {

@@ -1,0 +1,34 @@
+### obtener todas las indumentarias
+GET http://localhost:3000/api/indumentarias
+
+### obtener una indumentaria por id
+GET http://localhost:3000/api/indumentarias/
+
+### guardar una nueva indumentaria
+POST http://localhost:3000/api/indumentarias
+Content-Type: application/json
+
+{
+    "marca": "68dc29f3855611417f9620d6",
+    "categoria": "68dc28c0a6255ac03ce0115e",
+    "stock": 50,
+    "precio": 199.99,
+    "talle": "M",
+    "color": "Azul"
+}
+
+### actualizar una indumentaria por id
+PUT http://localhost:3000/api/indumentarias/
+Content-Type: application/json
+
+{
+    "marca": "68dc29f3855611417f9620d6",
+    "categoria": "68dc28c0a6255ac03ce0115e",
+    "stock": 20,
+    "precio": 249.99,
+    "talle": "L",
+    "color": "Rojo"
+}
+
+### eliminar una indumentaria por id
+DELETE http://localhost:3000/api/indumentarias/

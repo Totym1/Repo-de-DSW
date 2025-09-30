@@ -10,4 +10,4 @@ router.get('/marcas/:_id', marcaController.getMarca.bind(marcaController));
 router.put('/marcas/:_id', marcaController.updateMarca.bind(marcaController));
 router.delete('/marcas/:_id', marcaController.deleteMarca.bind(marcaController));
 
-  export const marcaRoutes = router;
+export const marcaRoutes = router;

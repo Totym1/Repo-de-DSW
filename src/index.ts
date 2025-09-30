@@ -15,9 +15,11 @@ app.use(cors());
 
 import { categoriaRoutes } from './Categoria/categ.routes.js';
 import { marcaRoutes } from './Marca/marca.routes.js';
+import { indumentariaRoutes } from './Indumentaria/indu.routes.js';
 
 app.use('/api', categoriaRoutes);
 app.use('/api', marcaRoutes);
+app.use('/api', indumentariaRoutes);
 
 const conexionMongoDB = process.env.MONGO_DB_CONNECTION;
 if (!conexionMongoDB) {
