@@ -10,4 +10,4 @@ router.get('/categorias/:_id', categoriaController.getCategoria.bind(categoriaCo
 router.put('/categorias/:_id', categoriaController.updateCategoria.bind(categoriaController));
 router.delete('/categorias/:_id', categoriaController.deleteCategoria.bind(categoriaController));
 
-  export const categoriaRoutes = router;
+export const categoriaRoutes = router;

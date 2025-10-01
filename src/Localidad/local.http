@@ -1,0 +1,22 @@
+### obtener todas las categorias
+GET http://localhost:3000/api/localidades
+### obtener una categoria por id
+GET http://localhost:3000/api/localidades/
+### guardar una nueva categoria
+POST http://localhost:3000/api/localidades
+Content-Type: application/json
+
+{
+    "codPostal": "2000",
+    "ciudad": "Rosario"
+}
+### actualizar una categoria por id
+PUT http://localhost:3000/api/localidades/68a684c5faba127393e3fa93
+Content-Type: application/json
+
+{
+    "codPostal": "2132",
+    "ciudad": "Funes"
+}
+### eliminar una categoria por id
+DELETE http://localhost:3000/api/localidades/
