@@ -18,12 +18,14 @@ import { marcaRoutes } from './Marca/marca.routes.js';
 import { indumentariaRoutes } from './Indumentaria/indu.routes.js';
 import { localidadRoutes } from './Localidad/local.routes.js';
 import { usuarioRoutes } from './Usuario/usu.routes.js';
+import { pedidoRoutes } from './Pedido/pedi.routes.js';
 
 app.use('/api', categoriaRoutes);
 app.use('/api', marcaRoutes);
 app.use('/api', indumentariaRoutes);
 app.use('/api', localidadRoutes);
 app.use('/api', usuarioRoutes);
+app.use('/api', pedidoRoutes);
 
 const conexionMongoDB = process.env.MONGO_DB_CONNECTION;
 if (!conexionMongoDB) {

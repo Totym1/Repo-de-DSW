@@ -11,6 +11,7 @@ Content-Type: application/json
 {
     "marca": "68dc29f3855611417f9620d6",
     "categoria": "68dc28c0a6255ac03ce0115e",
+    "nombre": "Diseño sublime",
     "stock": 50,
     "precio": 199.99,
     "talle": "M",
@@ -24,6 +25,7 @@ Content-Type: application/json
 {
     "marca": "68dc29f3855611417f9620d6",
     "categoria": "68dc28c0a6255ac03ce0115e",
+    "nombre": "Diseño espectacular",
     "stock": 20,
     "precio": 249.99,
     "talle": "L",

@@ -1,0 +1,28 @@
+### Obtener todos los pedidos
+GET http://localhost:3000/api/pedidos
+
+### Obtener un pedido por ID
+GET http://localhost:3000/api/pedidos/
+
+### Crear un nuevo pedido
+POST http://localhost:3000/api/pedidos
+Content-Type: application/json
+
+{
+    "usuario": "68dc9ba34ccd3a30797faea4",
+    "fecha": "2023-10-01",
+    "estado": "pendiente"
+}
+
+### Actualizar un pedido por ID
+PUT http://localhost:3000/api/pedidos/68df209a0a2f1bc2eee94790
+Content-Type: application/json
+
+{
+    "usuario": "68dc9ba34ccd3a30797faea4",
+    "fecha": "2023-10-02",
+    "estado": "completado"
+}
+
+### Eliminar un pedido por ID
+DELETE http://localhost:3000/api/pedidos/
