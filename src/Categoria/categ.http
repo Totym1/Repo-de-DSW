@@ -14,13 +14,13 @@ Content-Type: application/json
 }
 
 ### actualizar una categoria por id
-PUT http://localhost:3000/api/categorias/68dc19de42b28580ae432e25
+PUT http://localhost:3000/api/categorias/68dc28c0a6255ac03ce0115e
 Content-Type: application/json
 
 {
-    "nombre": "Categoría Actualizada",
-    "descripcion": "Descripción actualizada de la categoría"
+    "nombre": "Remera",
+    "descripcion": "Prenda de vestir que cubre el torso"
 }
 
 ### eliminar una categoria por id
-DELETE http://localhost:3000/api/categorias/68dc19de42b28580ae432e25
+DELETE http://localhost:3000/api/categorias/68dc9097cb00e605513992ba

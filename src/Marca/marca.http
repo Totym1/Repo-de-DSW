@@ -18,8 +18,8 @@ PUT http://localhost:3000/api/marcas/68dc29f3855611417f9620d6
 Content-Type: application/json
 
 {
-    "nombre": "Marca Actualizada",
-    "descripcion": "Descripción actualizada de la marca"
+    "nombre": "Nike",
+    "descripcion": "Just Do It"
 }
 
 ### eliminar una marca por id

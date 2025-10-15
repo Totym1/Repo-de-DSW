@@ -1,0 +1,30 @@
+### obtener todos los detalles de pedidos
+GET http://localhost:3000/api/detallepedido
+
+### obtener un detalle de pedido por id
+GET http://localhost:3000/api/detallepedido/
+
+### guardar un nuevo detalle de pedido
+POST http://localhost:3000/api/detallepedido
+Content-Type: application/json
+
+{
+    "pedido": "68df209a0a2f1bc2eee94790",
+    "indumentaria": "68e5c8469885b560f430049b",
+    "cantidad": 4,
+    "precioUnitario": 999.99
+}
+
+### actualizar un detalle de pedido por id
+PUT http://localhost:3000/api/detallepedido/
+Content-Type: application/json
+
+{
+    "pedido": "68df209a0a2f1bc2eee94790",
+    "indumentaria": "68e59f35bfef201807731888",
+    "cantidad": 2,
+    "precioUnitario": 249.99
+}
+
+### eliminar un detalle de pedido por id
+DELETE http://localhost:3000/api/detallepedido/
