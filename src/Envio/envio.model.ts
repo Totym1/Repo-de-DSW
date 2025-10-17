@@ -1,9 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { typePedido } from '../Pedido/pedi.model.js';
 import { typeDireccion } from '../Direccion/direc.model.js';
 
 export interface typeEnvio extends Document {
-    pedido: typePedido['_id'];
     direccion: typeDireccion['_id'];
     fechaEnvio: Date;
     fechaEntregaEstimada: Date;
@@ -12,7 +10,6 @@ export interface typeEnvio extends Document {
 }
 
 const EnvioSchema = new Schema<typeEnvio>({
-    pedido: { type: Schema.Types.ObjectId, ref: 'Pedido', required: true },
     direccion: { type: Schema.Types.ObjectId, ref: 'Direccion', required: true },
     fechaEnvio: { type: Date, required: true, default: Date.now },
     fechaEntregaEstimada: { type: Date, required: true },

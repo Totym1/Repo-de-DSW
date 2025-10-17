@@ -11,17 +11,21 @@ Content-Type: application/json
 {
     "usuario": "68dc9ba34ccd3a30797faea4",
     "fecha": "2025-02-01",
-    "estado": "pendiente"
+    "estado": "pendiente",
+    "pago": "68f256837c29a66a207606ed",
+    "envio": "68f257567c29a66a207606f5"
 }
 
 ### Actualizar un pedido por ID
-PUT http://localhost:3000/api/pedidos/68df209a0a2f1bc2eee94790
+PUT http://localhost:3000/api/pedidos/
 Content-Type: application/json
 
 {
     "usuario": "68dc9ba34ccd3a30797faea4",
     "fecha": "2023-10-02",
-    "estado": "completado"
+    "estado": "completado",
+    "pago": "68f256837c29a66a207606ed",
+    "envio": "68f257567c29a66a207606f5"
 }
 
 ### Eliminar un pedido por ID

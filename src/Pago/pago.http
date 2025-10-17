@@ -1,0 +1,30 @@
+### Obtener todos los pagos
+GET http://localhost:3000/api/pagos
+
+### Obtener un pago por ID
+GET http://localhost:3000/api/pagos/
+
+### Crear un nuevo pago
+POST http://localhost:3000/api/pagos
+Content-Type: application/json
+
+{
+    "fechaPago": "2025-02-02",
+    "monto": 999.99,
+    "metodoPago": "Tarjeta",
+    "estado": "Pendiente"
+}
+
+### Actualizar un pago existente
+PUT http://localhost:3000/api/pagos/
+Content-Type: application/json
+
+{
+    "fechaPago": "2025-02-02",
+    "monto": 999.99,
+    "metodoPago": "Tarjeta",
+    "estado": "Aprobado"
+}
+
+### Eliminar un pago
+DELETE http://localhost:3000/api/pagos/

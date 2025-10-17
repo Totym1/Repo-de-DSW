@@ -9,7 +9,7 @@ POST http://localhost:3000/api/detallepedido
 Content-Type: application/json
 
 {
-    "pedido": "68df209a0a2f1bc2eee94790",
+    "pedido": "68f257c07c29a66a207606fa",
     "indumentaria": "68e5c8469885b560f430049b",
     "cantidad": 4,
     "precioUnitario": 999.99
@@ -20,11 +20,11 @@ PUT http://localhost:3000/api/detallepedido/
 Content-Type: application/json
 
 {
-    "pedido": "68df209a0a2f1bc2eee94790",
+    "pedido": "68f257c07c29a66a207606fa",
     "indumentaria": "68e59f35bfef201807731888",
     "cantidad": 2,
     "precioUnitario": 249.99
 }
 
 ### eliminar un detalle de pedido por id
-DELETE http://localhost:3000/api/detallepedido/
+DELETE http://localhost:3000/api/detallepedido/68eeeb60030305399e74e7c3

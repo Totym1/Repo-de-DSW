@@ -21,6 +21,7 @@ import { usuarioRoutes } from './Usuario/usu.routes.js';
 import { pedidoRoutes } from './Pedido/pedi.routes.js';
 import { detallePedidoRoutes } from './DetallePedido/detalle.routes.js';
 import { envioRoutes } from './Envio/envio.routes.js';
+import { pagoRoutes } from './Pago/pago.routes.js';
 
 app.use('/api', categoriaRoutes);
 app.use('/api', marcaRoutes);
@@ -30,6 +31,7 @@ app.use('/api', usuarioRoutes);
 app.use('/api', pedidoRoutes);
 app.use('/api', detallePedidoRoutes);
 app.use('/api', envioRoutes);
+app.use('/api', pagoRoutes);
 
 const conexionMongoDB = process.env.MONGO_DB_CONNECTION;
 if (!conexionMongoDB) {

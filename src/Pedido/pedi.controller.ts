@@ -16,6 +16,8 @@ export class PedidoController {
       try {
         const pedidos: typePedido[] = await Pedido.find()
           .populate('usuario', 'nombre apellido email')
+          .populate('pago')
+          .populate('envio');
         res.status(200).json(pedidos);
             } catch (error) {
         res.status(500).json({ message: 'Error al obtener los pedidos', error });
@@ -26,6 +28,8 @@ export class PedidoController {
       try {
         const pedido: typePedido | null = await Pedido.findById(req.params._id)
           .populate('usuario', 'nombre apellido email')
+          .populate('pago')
+          .populate('envio');
         if (pedido) {
           res.status(200).json(pedido);
         } else {

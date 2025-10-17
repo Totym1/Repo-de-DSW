@@ -15,7 +15,6 @@ export class EnvioController {
     public async getAll(req: Request, res: Response): Promise<void> {
         try {
             const envios: typeEnvio[] = await Envio.find()
-              .populate('pedido')
               .populate('direccion');
             res.status(200).json(envios);
         } catch (error) {
@@ -26,7 +25,6 @@ export class EnvioController {
     public async getEnvio(req: Request, res: Response): Promise<void> {
         try {
             const envio: typeEnvio | null = await Envio.findById(req.params._id)
-                .populate('pedido')
                 .populate('direccion');
             if (envio) {
                 res.status(200).json(envio);

@@ -9,9 +9,8 @@ POST http://localhost:3000/api/envios
 Content-Type: application/json
 
 {
-    "pedido": "id",
-    "direccion": "id",
-    "fechaEnvio": "",
+    "direccion": "68f1c9413891f5f600c4cf60",
+    "fechaEnvio": "05-11-2025",
     "fechaEntregaEstimada": "10-11-2025",
     "fechaEntregaReal": "",
     "estado": "pendiente"
@@ -22,7 +21,6 @@ PUT http://localhost:3000/api/envios/
 Content-Type: application/json
 
 {
-    "pedido": "id",
     "direccion": "id",
     "fechaEnvio": "",
     "fechaEntregaEstimada": "10-11-2025",
