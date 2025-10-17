@@ -9,8 +9,9 @@ POST http://localhost:3000/api/marcas
 Content-Type: application/json
 
 {
-    "nombre": "Marca de Prueba",
-    "descripcion": "Descripción de la marca de prueba"
+    "nombre": "Lacoste",
+    "descripcion": "Elegancia y estilo deportivo",
+    "logo": "lacoste_logo.png"
 }
 
 ### actualizar una marca por id
@@ -19,7 +20,8 @@ Content-Type: application/json
 
 {
     "nombre": "Nike",
-    "descripcion": "Just Do It"
+    "descripcion": "Just Do It",
+    "logo": "nike_logo.png"
 }
 
 ### eliminar una marca por id

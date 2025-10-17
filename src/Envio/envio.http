@@ -1,0 +1,34 @@
+### obtener todos los envios
+GET http://localhost:3000/api/envios
+
+### obtener un envio por id
+GET http://localhost:3000/api/envios/
+
+### crear un nuevo envio
+POST http://localhost:3000/api/envios
+Content-Type: application/json
+
+{
+    "pedido": "id",
+    "direccion": "id",
+    "fechaEnvio": "",
+    "fechaEntregaEstimada": "10-11-2025",
+    "fechaEntregaReal": "",
+    "estado": "pendiente"
+}
+
+### actualizar un envio por id
+PUT http://localhost:3000/api/envios/
+Content-Type: application/json
+
+{
+    "pedido": "id",
+    "direccion": "id",
+    "fechaEnvio": "",
+    "fechaEntregaEstimada": "10-11-2025",
+    "fechaEntregaReal": "",
+    "estado": "enviado"
+}
+
+### eliminar un envio por id
+DELETE http://localhost:3000/api/envios/

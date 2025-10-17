@@ -15,7 +15,6 @@ export class UsuarioController {
     public async getAll(req: Request, res: Response): Promise<void> {
       try {
         const usuarios: typeUsuario[] = await Usuario.find()
-          .populate('localidad', 'codPostal ciudad');
         res.status(200).json(usuarios);
       } catch (error) {
         res.status(500).json({ message: 'Error al obtener los usuarios', error });
@@ -25,7 +24,6 @@ export class UsuarioController {
     public async getUsuario(req: Request, res: Response): Promise<void> {
       try {
         const usuario: typeUsuario | null = await Usuario.findById(req.params._id)
-          .populate('localidad', 'codPostal ciudad');
         if (usuario) {
             res.status(200).json(usuario);
         } else {

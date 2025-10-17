@@ -10,6 +10,7 @@ export interface typeIndumentaria extends Document {
     precio: number;
     talle: string;
     color: string;
+    imagen: string;
 }
 
 const IndumentariaSchema = new Schema<typeIndumentaria>({
@@ -19,7 +20,8 @@ const IndumentariaSchema = new Schema<typeIndumentaria>({
     stock: { type: Number, required: true },
     precio: { type: Number, required: true },
     talle: { type: String, required: true },
-    color: { type: String, required: true }
+    color: { type: String, required: true },
+    imagen: { type: String, required: true }
 });
 
 export const Indumentaria = mongoose.model<typeIndumentaria>('Indumentaria', IndumentariaSchema);

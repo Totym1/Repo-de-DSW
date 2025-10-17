@@ -9,13 +9,14 @@ POST http://localhost:3000/api/indumentarias
 Content-Type: application/json
 
 {
-    "marca": "68dc29f3855611417f9620d6",
-    "categoria": "68dc28c0a6255ac03ce0115e",
-    "nombre": "Legendaria",
-    "stock": 10,
-    "precio": 999.99,
+    "marca": "68f1681b3f0a1b7e177dfc4a",
+    "categoria": "68f1688e3f0a1b7e177dfc4e",
+    "nombre": "Deportivo",
+    "stock": 50,
+    "precio": 1499.99,
     "talle": "XL",
-    "color": "Dorado"
+    "color": "Gris",
+    "imagen": "ruta/a/la/imagen.jpg"
 }
 
 ### actualizar una indumentaria por id
@@ -29,8 +30,9 @@ Content-Type: application/json
     "stock": 20,
     "precio": 249.99,
     "talle": "L",
-    "color": "Azul"
+    "color": "Azul",
+    "imagen": "ruta/a/la/nueva_imagen.jpg"
 }
 
 ### eliminar una indumentaria por id
-DELETE http://localhost:3000/api/indumentarias/68dc3a36a900980296e3faeb
+DELETE http://localhost:3000/api/indumentarias/68e59f35bfef201807731888

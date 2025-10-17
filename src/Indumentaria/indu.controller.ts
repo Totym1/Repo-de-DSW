@@ -15,8 +15,8 @@ export class IndumentariaController {
     public async getAll(req: Request, res: Response): Promise<void> {
       try {
         const indumentarias: typeIndumentaria[] = await Indumentaria.find()
-          .populate('categoria', 'nombre descripcion')
-          .populate('marca', 'nombre descripcion');
+          .populate('categoria')
+          .populate('marca');
         res.status(200).json(indumentarias);
       } catch (error) {
         res.status(500).json({ message: 'Error al obtener las Indumentarias', error });
@@ -26,8 +26,8 @@ export class IndumentariaController {
     public async getIndumentaria(req: Request, res: Response): Promise<void> {
       try {
         const indumentaria: typeIndumentaria | null = await Indumentaria.findById(req.params._id)
-          .populate('categoria', 'nombre descripcion')
-          .populate('marca', 'nombre descripcion');
+          .populate('categoria')
+          .populate('marca');
         if (indumentaria) {
             res.status(200).json(indumentaria);
         } else {

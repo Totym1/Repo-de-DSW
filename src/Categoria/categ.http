@@ -9,8 +9,8 @@ POST http://localhost:3000/api/categorias
 Content-Type: application/json
 
 {
-    "nombre": "Categoría de Prueba",
-    "descripcion": "Descripción de la categoría de prueba"
+    "nombre": "Pantalon",
+    "descripcion": "Prenda de vestir que cubre desde la cintura hasta los pies"
 }
 
 ### actualizar una categoria por id

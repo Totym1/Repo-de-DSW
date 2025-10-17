@@ -4,7 +4,7 @@ import { typeUsuario } from '../Usuario/usu.model.js';
 export interface typePedido extends Document {
     usuario: typeUsuario['_id'];
     fecha: Date;
-    estado: string;
+    estado: "pendiente" | "completado" | "cancelado";
 }
 
 const PedidoSchema = new Schema<typePedido>({

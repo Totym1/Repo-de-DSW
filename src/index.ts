@@ -16,18 +16,20 @@ app.use(cors());
 import { categoriaRoutes } from './Categoria/categ.routes.js';
 import { marcaRoutes } from './Marca/marca.routes.js';
 import { indumentariaRoutes } from './Indumentaria/indu.routes.js';
-import { localidadRoutes } from './Localidad/local.routes.js';
+import { direccionRoutes } from './Direccion/direc.routes.js';
 import { usuarioRoutes } from './Usuario/usu.routes.js';
 import { pedidoRoutes } from './Pedido/pedi.routes.js';
 import { detallePedidoRoutes } from './DetallePedido/detalle.routes.js';
+import { envioRoutes } from './Envio/envio.routes.js';
 
 app.use('/api', categoriaRoutes);
 app.use('/api', marcaRoutes);
 app.use('/api', indumentariaRoutes);
-app.use('/api', localidadRoutes);
+app.use('/api', direccionRoutes);
 app.use('/api', usuarioRoutes);
 app.use('/api', pedidoRoutes);
 app.use('/api', detallePedidoRoutes);
+app.use('/api', envioRoutes);
 
 const conexionMongoDB = process.env.MONGO_DB_CONNECTION;
 if (!conexionMongoDB) {
