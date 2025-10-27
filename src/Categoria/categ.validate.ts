@@ -8,8 +8,7 @@ export const validarCategoria = [
     .escape()               // convierte caracteres especiales como <, >, &, etc.
     .notEmpty()             .withMessage("El nombre es obligatorio")
     .isLength({ min: 2 })   .withMessage("El nombre debe tener al menos 2 caracteres")
-    .isString()             .withMessage("El nombre debe ser una cadena de texto"),
-
+    .isAlpha()              .withMessage("El nombre debe contener solo letras"),
   body("descripcion")
     .trim()
     .escape()

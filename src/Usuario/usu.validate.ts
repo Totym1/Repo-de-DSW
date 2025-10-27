@@ -8,13 +8,13 @@ export const validarUsuario = [
     .escape()               // convierte caracteres especiales como <, >, &, etc.
     .notEmpty()             .withMessage("El nombre es obligatorio")
     .isLength({ min: 2 })   .withMessage("El nombre debe tener al menos 2 caracteres")
-    .isString()             .withMessage("El nombre debe ser una cadena de texto"),
+    .isAlpha()              .withMessage("El nombre debe contener solo letras"),
   body("apellido")
     .trim()
     .escape()
     .notEmpty()             .withMessage("El apellido es obligatorio")
     .isLength({ min: 2 })   .withMessage("El apellido debe tener al menos 2 caracteres")
-    .isString()             .withMessage("El apellido debe ser una cadena de texto"),
+    .isAlpha()              .withMessage("El apellido debe contener solo letras"),
   body("email")
     .trim()
     .normalizeEmail()       // normaliza el email (convierte a minúsculas, elimina puntos innecesarios, etc.)
@@ -28,6 +28,7 @@ export const validarUsuario = [
     .escape()
     .notEmpty()             .withMessage("El teléfono es obligatorio")
     .isMobilePhone("es-AR") .withMessage("El teléfono debe ser un número de teléfono válido en Argentina"),
+    
   (req:Request, res:Response, next:NextFunction) => {
     const errores = validationResult(req);
     if (!errores.isEmpty()) {
