@@ -15,8 +15,8 @@ const PedidoSchema = new Schema<typePedido>({
     usuario: { type: Schema.Types.ObjectId, ref: 'Usuario', required: true },
     fecha: { type: Date, required: true, default: Date.now },
     estado: { type: String, required: true, enum: ['pendiente', 'completado', 'cancelado'], default: 'pendiente' },
-    pago: { type: Schema.Types.ObjectId, ref: 'Pago', required: true },
-    envio: { type: Schema.Types.ObjectId, ref: 'Envio', required: true },
+    pago: { type: Schema.Types.ObjectId, ref: 'Pago', required: false },
+    envio: { type: Schema.Types.ObjectId, ref: 'Envio', required: false },
 });
 
 export const Pedido = mongoose.model<typePedido>('Pedido', PedidoSchema);

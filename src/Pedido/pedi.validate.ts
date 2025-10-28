@@ -17,13 +17,11 @@ export const validarPedido = [
   body("envio")
     .optional()             //El envio es opcional
     .trim()
-    .escape()
-    .isMongoId()            .withMessage("Id invalido"),
+    .escape(),
   body("pago")
     .optional()             //El pago es opcional
     .trim()
-    .escape()
-    .isMongoId()            .withMessage("Id invalido"),
+    .escape(),
   body("usuario")
     .trim()
     .escape()

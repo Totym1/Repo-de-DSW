@@ -4,6 +4,8 @@ import { Pedido, typePedido } from './pedi.model.js';
 export class PedidoController {
     public async createPedido(req: Request, res: Response): Promise<void> {
       try { 
+        if(req.body.envio === "") req.body.envio = null;
+        if(req.body.pago === "") req.body.pago = null;
         const newPedido: typePedido = new Pedido(req.body);
         await newPedido.save();
         res.status(201).json({ message: 'Pedido guardado correctamente!', newPedido});
@@ -42,6 +44,8 @@ export class PedidoController {
 
     public async updatePedido(req: Request, res: Response): Promise<void> {
       try {
+        if(req.body.envio === "") req.body.envio = null;
+        if(req.body.pago === "") req.body.pago = null;
         const updatedPedido: typePedido | null = await Pedido.findByIdAndUpdate(
           req.params._id,
           req.body,
