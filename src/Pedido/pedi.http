@@ -9,21 +9,35 @@ POST http://localhost:3000/api/pedidos
 Content-Type: application/json
 
 {
-    "usuario": "68dc9ba34ccd3a30797faea4",
+    "usuario": "68f5642c0610a3dcf6823eae",
     "fecha": "2025-02-01",
     "estado": "pendiente",
+    "detallePedido": [{
+        "indumentaria": "68e59eb3bfef201807731875",
+        "cantidad": 2,
+        "precioUnitario":249.99
+    },{
+        "indumentaria": "68e5c8469885b560f430049b",
+        "cantidad": 1,
+        "precioUnitario":599.99
+    }],
     "pago": null,
     "envio": null
 }
 
 ### Actualizar un pedido por ID
-PUT http://localhost:3000/api/pedidos/69010e0ce9a75fc27f09883c
+PUT http://localhost:3000/api/pedidos/6902b81e03c08c25ad9c3fb4
 Content-Type: application/json
 
 {
     "usuario": "68f5642c0610a3dcf6823eae",
-    "fecha": "2023-10-02",
+    "fecha": "2025-02-02",
     "estado": "completado",
+    "detallePedido": [{
+        "indumentaria": "68e59eb3bfef201807731875",
+        "cantidad": 2,
+        "precioUnitario":249.99
+    }],
     "pago": null,
     "envio": null
 }

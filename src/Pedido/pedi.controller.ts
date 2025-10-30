@@ -18,6 +18,7 @@ export class PedidoController {
       try {
         const pedidos: typePedido[] = await Pedido.find()
           .populate('usuario', 'nombre apellido email')
+          .populate('detallePedido.indumentaria', 'categoria marca nombre talle color precio')
           .populate('pago')
           .populate('envio');
         res.status(200).json(pedidos);

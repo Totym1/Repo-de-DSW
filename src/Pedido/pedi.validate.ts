@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { body, validationResult } from "express-validator";
+import { isTypedArray } from "util/types";
 
 //Middleware para validar y sanitizar
 export const validarPedido = [
@@ -14,6 +15,11 @@ export const validarPedido = [
     .notEmpty()             .withMessage("El estado es obligatorio")
     .isIn(["pendiente", "completado", "cancelado"])
     .withMessage("El estado debe ser 'pendiente', 'completado' o 'cancelado'"),
+  body("detallePedido")
+    .trim()
+    .escape()
+    .notEmpty()             .withMessage("El detalle del pedido es obligatorio")
+    .isArray(),
   body("envio")
     .optional()             //El envio es opcional
     .trim()
