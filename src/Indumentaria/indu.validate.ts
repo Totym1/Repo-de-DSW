@@ -29,11 +29,6 @@ export const validarIndumentaria = [
     .escape()
     .notEmpty()             .withMessage("El color es obligatorio")
     .isString(),
-  body("imagen")
-    .trim()
-    .escape()
-    .notEmpty()             .withMessage("La imagen es obligatoria")
-    .isURL()                .withMessage("La imagen debe ser una URL valida"),
   body("categoria")
     .trim()
     .escape()

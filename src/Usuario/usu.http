@@ -24,4 +24,4 @@ Content-Type: application/json
     "telefono": "0987654321"
 }
 ### eliminar un usuario por id
-DELETE http://localhost:3000/api/usuarios/68f2b87b0ce4520676a1ec4c
+DELETE http://localhost:3000/api/usuarios/6902eaed0ec30afe2cb92f61

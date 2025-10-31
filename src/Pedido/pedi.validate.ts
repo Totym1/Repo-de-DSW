@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import { body, validationResult } from "express-validator";
-import { isTypedArray } from "util/types";
 
 //Middleware para validar y sanitizar
 export const validarPedido = [

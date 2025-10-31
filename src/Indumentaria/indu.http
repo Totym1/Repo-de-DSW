@@ -13,10 +13,10 @@ Content-Type: application/json
     "categoria": "68f1688e3f0a1b7e177dfc4e",
     "nombre": "Deportivo",
     "stock": 50,
-    "precio": 1499.99,
-    "talle": "XL",
-    "color": "Gris",
-    "imagen": "ruta/a/la/imagen.jpg"
+    "precio": 349.99,
+    "talle": "S",
+    "color": "Negro",
+    "imagen": "https://celadasa.vtexassets.com/arquivos/ids/454668-800-auto?v=638702134548770000&width=800&height=auto&aspect=true"
 }
 
 ### actualizar una indumentaria por id
@@ -35,4 +35,4 @@ Content-Type: application/json
 }
 
 ### eliminar una indumentaria por id
-DELETE http://localhost:3000/api/indumentarias/68e59f35bfef201807731888
+DELETE http://localhost:3000/api/indumentarias/69042d29c3b675080b83ad84
