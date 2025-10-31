@@ -7,8 +7,7 @@ export const validarMarca = [
     .trim()                 // para sacar espacios al principio/final
     .escape()               // convierte caracteres especiales como <, >, &, etc.
     .notEmpty()             .withMessage("El nombre es obligatorio")
-    .isLength({ min: 2 })   .withMessage("El nombre debe tener al menos 2 caracteres")
-    .isAlpha()              .withMessage("El nombre debe contener solo letras"),
+    .isLength({ min: 2 })   .withMessage("El nombre debe tener al menos 2 caracteres"),
   body("descripcion")
     .trim()
     .escape()

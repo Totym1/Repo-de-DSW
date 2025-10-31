@@ -15,13 +15,13 @@ Content-Type: application/json
 }
 
 ### actualizar una marca por id
-PUT http://localhost:3000/api/marcas/68dc29f3855611417f9620d6
+PUT http://localhost:3000/api/marcas/68f9ab05f9043afdb5058bb2
 Content-Type: application/json
 
 {
-    "nombre": "Nike",
-    "descripcion": "Just Do It",
-    "logo": "nike_logo.png"
+    "nombre": "IDN Athletics",
+    "descripcion": "Ropa deportiva para entrenar",
+    "logo": "https://drive.google.com/file/d/1jcXv1d28LY_BOzJROIa2ucuR-VcObT4z"
 }
 
 ### eliminar una marca por id
