@@ -1,0 +1,31 @@
+### obtener todas las indumentarias
+GET http://localhost:3000/api/indumentarias
+
+### obtener una indumentaria por id
+GET http://localhost:3000/api/indumentarias/
+
+### guardar una nueva indumentaria
+POST http://localhost:3000/api/indumentarias
+Content-Type: application/json
+
+{
+    "marca": "68dc29f3855611417f9620d6",
+    "categoria": "68f9a73df9043afdb5058ba8",
+    "nombre": "Central Nacional",
+    "stock": 50,
+    "precio": 35000,
+    "talle":"M",
+    "color": "Celeste, Blanco, Amarillo y Azul",
+    "imagen": "https://http2.mlstatic.com/D_Q_NP_2X_856598-MLA86914879771_062025-E.webp"
+}
+
+### actualizar una indumentaria por id
+PUT http://localhost:3000/api/indumentarias/68f169c73f0a1b7e177dfc63
+Content-Type: application/json
+
+{
+    "precio": 130000
+}
+
+### eliminar una indumentaria por id
+DELETE http://localhost:3000/api/indumentarias/6905261f2ca1817ae2d75190

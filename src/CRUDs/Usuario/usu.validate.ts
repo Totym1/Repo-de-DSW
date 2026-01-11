@@ -26,8 +26,8 @@ export const validarUsuario = [
   body("telefono")
     .trim()
     .escape()
-    .notEmpty()             .withMessage("El teléfono es obligatorio")
-    .isMobilePhone("es-AR") .withMessage("El teléfono debe ser un número de teléfono válido en Argentina"),
+    .notEmpty()             .withMessage("El teléfono es obligatorio"),
+    //.isMobilePhone("es-AR") .withMessage("El teléfono debe ser un número de teléfono válido en Argentina"),
     
   (req:Request, res:Response, next:NextFunction) => {
     const errores = validationResult(req);
