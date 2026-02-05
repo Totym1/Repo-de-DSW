@@ -6,7 +6,7 @@ export interface typeUsuario extends Document {
     email: string;
     contraseña: string;
     telefono: string;
-    rol: "cliente" | "admin";
+    rol: string;
 }
 
 const UsuarioSchema = new Schema<typeUsuario>({
@@ -15,7 +15,7 @@ const UsuarioSchema = new Schema<typeUsuario>({
     email: { type: String, required: true, unique: true },
     contraseña: { type: String, required: true },
     telefono: { type: String, required: true },
-    rol: { type: String, enum: ['cliente', 'admin'], default: 'cliente' }
+    rol: { type: String, required: true},
 });
 
 export const Usuario = mongoose.model<typeUsuario>('Usuario', UsuarioSchema);

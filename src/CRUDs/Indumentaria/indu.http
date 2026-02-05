@@ -11,20 +11,20 @@ Content-Type: application/json
 {
     "marca": "68dc29f3855611417f9620d6",
     "categoria": "68f9a73df9043afdb5058ba8",
-    "nombre": "Central Nacional",
+    "nombre": "Remera Deportiva Adidas",
     "stock": 50,
     "precio": 35000,
     "talle":"M",
-    "color": "Celeste, Blanco, Amarillo y Azul",
-    "imagen": "https://http2.mlstatic.com/D_Q_NP_2X_856598-MLA86914879771_062025-E.webp"
+    "color": "Negro",
+    "imagen": "https://idnnutrition.com/wp-content/uploads/2024/04/13.jpg"
 }
 
 ### actualizar una indumentaria por id
-PUT http://localhost:3000/api/indumentarias/68f169c73f0a1b7e177dfc63
+PUT http://localhost:3000/api/indumentarias/68e59eb3bfef201807731875
 Content-Type: application/json
 
 {
-    "precio": 130000
+    "imagen": "https://idnnutrition.com/wp-content/uploads/2024/04/13.jpg"
 }
 
 ### eliminar una indumentaria por id

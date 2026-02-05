@@ -41,7 +41,8 @@ export const loginService = async (email: string, contraseña: string) => {
     usuario: {
       _id: usuario._id,
       nombre: usuario.nombre,
-      email: usuario.email,
+      apellido: usuario.apellido,
+      email: usuario.email
     },
   };
 };
